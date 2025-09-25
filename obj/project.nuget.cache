@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "u/s74OV3Fl8=",
+  "success": true,
+  "projectFilePath": "/Users/diego/WebApiPAM3/WebApiPAM3.csproj",
+  "expectedPackageFiles": [
+    "/Users/diego/.nuget/packages/microsoft.aspnetcore.openapi/9.0.8/microsoft.aspnetcore.openapi.9.0.8.nupkg.sha512",
+    "/Users/diego/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
