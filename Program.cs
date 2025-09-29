@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<ProdcutoService>();
+builder.Services.AddSingleton<ContactoService>();
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -19,9 +19,9 @@ if (app.Environment.IsDevelopment())
 
 }
 
-app.MapGet("/minimal/productos",(ProdcutoService servicio) =>{
+app.MapGet("/minimal/contactos",(ContactoService servicio) =>{
     return Results.Ok (servicio.ObtenerTodo());
-}).WithName("ObtenerTodos").WithTags("Minimal_Producto").WithOpenApi();
+}).WithName("ObtenerTodos").WithTags("Minimal_Contacto").WithOpenApi();
 //app.UseHttpRedirection();
 app.MapControllers();
 app.Run();
