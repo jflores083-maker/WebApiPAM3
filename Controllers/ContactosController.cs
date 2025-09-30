@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 [ApiController]
-[Route ("api/[controller]")]
+[Route("api/[controller]")]
+[Authorize]
 public class ContactosController : ControllerBase{
     private readonly ContactoService _contactoService;
 

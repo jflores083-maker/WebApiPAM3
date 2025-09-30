@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/diego/WebApiPAM3/WebApiPAM3.csproj": {}
+    "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj": {}
   },
   "projects": {
-    "/Users/diego/WebApiPAM3/WebApiPAM3.csproj": {
+    "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/diego/WebApiPAM3/WebApiPAM3.csproj",
+        "projectUniqueName": "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj",
         "projectName": "WebApiPAM3",
-        "projectPath": "/Users/diego/WebApiPAM3/WebApiPAM3.csproj",
-        "packagesPath": "/Users/diego/.nuget/packages/",
-        "outputPath": "/Users/diego/WebApiPAM3/obj/",
+        "projectPath": "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj",
+        "packagesPath": "C:\\Users\\Julio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/diego/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Julio\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.8, )"
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

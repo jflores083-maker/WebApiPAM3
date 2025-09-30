@@ -34,3 +34,47 @@
 /Users/diego/WebApiPAM3/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/diego/WebApiPAM3/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/diego/WebApiPAM3/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\appsettings.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\WebApiPAM3.staticwebassets.endpoints.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\WebApiPAM3.exe
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\WebApiPAM3.deps.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\WebApiPAM3.runtimeconfig.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\WebApiPAM3.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\WebApiPAM3.pdb
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.csproj.AssemblyReference.cache
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.AssemblyInfoInputs.cache
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.AssemblyInfo.cs
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.csproj.CoreCompileInputs.cache
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.sourcelink.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\scopedcss\bundle\WebApiPAM3.styles.css
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.csproj.Up2Date
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\refint\WebApiPAM3.dll
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.pdb
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\WebApiPAM3.genruntimeconfig.cache
+C:\Users\Julio\Desktop\Proyecto Web API - Desarrolloo Moviles 3\WebApiPAM3\obj\Debug\net9.0\ref\WebApiPAM3.dll
