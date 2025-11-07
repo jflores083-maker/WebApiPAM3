@@ -2,14 +2,17 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using WebApiPAM3.Models;
+
+namespace WebApiPAM3.Services;
 
 public class AuthService
 {
     // Usuarios hardcodeados para prueba
     private readonly List<Usuario> _usuarios = new()
     {
-        new Usuario { NombreUsuario = "julio", Password = "julio123", Rol = "Administrador" },
-        new Usuario { NombreUsuario = "diego", Password = "diego123", Rol = "Usuario" }
+        new Usuario { UserName = "julio", Password = "julio123", Rol = "Administrador" },
+        new Usuario { UserName = "diego", Password = "diego123", Rol = "Usuario" }
     };
 
     private readonly string _secretKey = "#_Nuestra_clave_proyecto_moviles_3_$";
@@ -18,7 +21,7 @@ public class AuthService
     {
         // Validar credenciales
         var usuario = _usuarios.FirstOrDefault(u => 
-            u.NombreUsuario == nombreUsuario && u.Password == password);
+            u.UserName == nombreUsuario && u.Password == password);
 
         if (usuario == null)
             return null; // Credenciales inválidas
@@ -36,10 +39,10 @@ public class AuthService
         {
             Subject = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Name, usuario.NombreUsuario),
+                new Claim(ClaimTypes.Name, usuario.UserName),
                 new Claim(ClaimTypes.Role, usuario.Rol)
             }),
-            Expires = DateTime.UtcNow.AddHours(2), // Token válido por 2 horas
+            Expires = DateTime.UtcNow.AddHours(2),
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature)

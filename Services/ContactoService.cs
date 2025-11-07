@@ -1,29 +1,33 @@
-public class ContactoService {
-    public  readonly List <Contacto> _contacts = new List<Contacto>();
+using WebApiPAM3.Models;
 
-    // public void Add (Contacto Contacto)
+namespace WebApiPAM3.Services;
 
-    private int id=0;
+public class ContactoService
+{
+    public readonly List<Contacto> _contacts = new List<Contacto>();
+    private int id = 0;
 
-    public List<Contacto> ObtenerTodo ()=> _contacts;
+    public List<Contacto> ObtenerTodo() => _contacts;
 
-    public Contacto Crear (Contacto contacto){
-
-        contacto.id = id++;
+    public Contacto Crear(Contacto contacto)
+    {
+        contacto.Id = id++;
         _contacts.Add(contacto);
         return contacto;
     }
 
-    public Contacto? ObtenerPorId (int id)=> _contacts.FirstOrDefault(x => x.id == id);
+    public Contacto? ObtenerPorId(int id) => _contacts.FirstOrDefault(x => x.Id == id);
 
-    public Contacto Modificar (Contacto contacto) {
-
-        var existe = _contacts.FirstOrDefault ( x => x.id == contacto.id);
+    public Contacto? Modificar(Contacto contacto)
+    {
+        var existe = _contacts.FirstOrDefault(x => x.Id == contacto.Id);
         if (existe == null) return null;
+        
         existe.Nombre = contacto.Nombre;
-        existe.Numero = contacto.Numero;
+        existe.Telefono = contacto.Telefono;
         existe.Apellido = contacto.Apellido;
         existe.Email = contacto.Email;
+        
         return existe;
     }
 }

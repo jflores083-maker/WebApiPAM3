@@ -1,6 +1,9 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using WebApiPAM3.Models; // Asegúrate que el namespace coincida con tu proyecto
+using WebApiPAM3.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,10 @@ builder.Services.AddSwaggerGen(options =>
 });
 builder.Services.AddSingleton<ContactoService>();
 builder.Services.AddSingleton<AuthService>(); // Nuevo servicio
+
+// CONFIGURACIÓN DEL DBCONTEXT
+builder.Services.AddDbContext<DbA358b2Pam3Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();

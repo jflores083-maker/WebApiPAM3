@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using WebApiPAM3.Services;
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase

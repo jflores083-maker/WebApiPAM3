@@ -1,6 +1,15 @@
-public class Usuario
+﻿using System;
+using System.Collections.Generic;
+
+namespace WebApiPAM3.Models;
+
+public partial class Usuario
 {
-    public string NombreUsuario { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
-    public string Rol { get; set; } = string.Empty;
+    public int Id { get; set; }
+
+    public string UserName { get; set; } = null!;
+
+    public string Password { get; set; } = null!;
+
+    public string Rol { get; set; } = null!;
 }

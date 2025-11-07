@@ -1,28 +1,36 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApiPAM3.Models;
+using WebApiPAM3.Services;
+
+namespace WebApiPAM3.Controllers;
+
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
-public class ContactosController : ControllerBase{
+public class ContactosController : ControllerBase
+{
     private readonly ContactoService _contactoService;
 
-    public ContactosController(ContactoService contactoService){
+    public ContactosController(ContactoService contactoService)
+    {
         _contactoService = contactoService;
     }
 
     [HttpPost]
-    public ActionResult <Contacto> Crear(Contacto newContacto){
+    public ActionResult<Contacto> Crear(Contacto newContacto)
+    {
         newContacto = _contactoService.Crear(newContacto);
-        return Ok( newContacto);
+        return Ok(newContacto);
     }
 
-[HttpPatch("{id:int}")]
-public ActionResult<Contacto> Modificar (int id, [FromBody] Contacto newContacto ){
-    if (!ModelState.IsValid) return BadRequest (ModelState);
+    [HttpPatch("{id:int}")]
+    public ActionResult<Contacto> Modificar(int id, [FromBody] Contacto newContacto)
+    {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
 
-    newContacto.id = id;
-    var actualizado = _contactoService.Modificar(newContacto);
-    return actualizado is null? NotFound(): Ok(actualizado);
-}
-
+        newContacto.Id = id;
+        var actualizado = _contactoService.Modificar(newContacto);
+        return actualizado is null ? NotFound() : Ok(actualizado);
+    }
 }

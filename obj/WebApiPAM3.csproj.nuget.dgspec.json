@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj": {}
+    "C:\\Users\\Julio\\Desktop\\Proyecto Prog. Aplicaciones Móviles 3\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj": {
+    "C:\\Users\\Julio\\Desktop\\Proyecto Prog. Aplicaciones Móviles 3\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj",
+        "projectUniqueName": "C:\\Users\\Julio\\Desktop\\Proyecto Prog. Aplicaciones Móviles 3\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj",
         "projectName": "WebApiPAM3",
-        "projectPath": "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj",
+        "projectPath": "C:\\Users\\Julio\\Desktop\\Proyecto Prog. Aplicaciones Móviles 3\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\WebApiPAM3.csproj",
         "packagesPath": "C:\\Users\\Julio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julio\\Desktop\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\obj\\",
+        "outputPath": "C:\\Users\\Julio\\Desktop\\Proyecto Prog. Aplicaciones Móviles 3\\Proyecto Web API - Desarrolloo Moviles 3\\WebApiPAM3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Julio\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,6 +51,16 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.10, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
