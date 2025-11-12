@@ -1,29 +1,43 @@
-public class ContactoService {
-    public  readonly List <Contacto> _contacts = new List<Contacto>();
+using System.Collections.Generic;
+using System.Linq;
 
-    // public void Add (Contacto Contacto)
+public class ContactoService
+{
+    private readonly ContactosContext _db;
 
-    private int id=0;
+    public ContactoService(ContactosContext db)
+    {
+        _db = db;
+    }
 
-    public List<Contacto> ObtenerTodo ()=> _contacts;
+    public List<Contacto> ObtenerTodo()
+    {
+        return _db.Contactos.ToList();
+    }
 
-    public Contacto Crear (Contacto contacto){
-
-        contacto.id = id++;
-        _contacts.Add(contacto);
+    public Contacto Crear(Contacto contacto)
+    {
+        _db.Contactos.Add(contacto);
+        _db.SaveChanges();
         return contacto;
     }
 
-    public Contacto? ObtenerPorId (int id)=> _contacts.FirstOrDefault(x => x.id == id);
+    public Contacto? ObtenerPorId(int id)
+    {
+        return _db.Contactos.FirstOrDefault(x => x.id == id);
+    }
 
-    public Contacto Modificar (Contacto contacto) {
-
-        var existe = _contacts.FirstOrDefault ( x => x.id == contacto.id);
+    public Contacto? Modificar(Contacto contacto)
+    {
+        var existe = _db.Contactos.FirstOrDefault(x => x.id == contacto.id);
         if (existe == null) return null;
+
         existe.Nombre = contacto.Nombre;
-        existe.Numero = contacto.Numero;
         existe.Apellido = contacto.Apellido;
+        existe.Telefono = contacto.Telefono;
         existe.Email = contacto.Email;
+
+        _db.SaveChanges();
         return existe;
     }
 }

@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,13 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-builder.Services.AddSingleton<ContactoService>();
+
+
+builder.Services.AddDbContext<ContactosContext>(options =>
+    options.UseSqlServer("Server=SQL8020.site4now.net;Database=db_a358b2_pam3;User Id=db_a358b2_pam3_admin;Password=tudai123;TrustServerCertificate=True"));
+
+builder.Services.AddScoped<ContactoService>();
+
 builder.Services.AddSingleton<AuthService>(); // Nuevo servicio
 
 builder.Services.AddOpenApi();
@@ -69,10 +76,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet("/minimal/contactos", (ContactoService servicio) =>
-{
-    return Results.Ok(servicio.ObtenerTodo());
-}).WithName("ObtenerTodos").WithTags("Minimal_Contacto").WithOpenApi();
+
 
 app.MapControllers();
 app.Run();

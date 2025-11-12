@@ -15,6 +15,12 @@ public class ContactosController : ControllerBase{
         newContacto = _contactoService.Crear(newContacto);
         return Ok( newContacto);
     }
+[HttpGet]
+public ActionResult<List<Contacto>> ObtenerTodos()
+{
+    var contactos = _contactoService.ObtenerTodo();
+    return Ok(contactos);
+}
 
 [HttpPatch("{id:int}")]
 public ActionResult<Contacto> Modificar (int id, [FromBody] Contacto newContacto ){
