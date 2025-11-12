@@ -3,32 +3,39 @@ using Microsoft.AspNetCore.Mvc;
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
-public class ContactosController : ControllerBase{
-    private readonly ContactoService _contactoService;
+public class ContactosController : ControllerBase
+{
+    private readonly IContactoRepository _contactoRepository;
 
-    public ContactosController(ContactoService contactoService){
-        _contactoService = contactoService;
+    public ContactosController(IContactoRepository contactoRepository)
+    {
+        _contactoRepository = contactoRepository;
     }
 
     [HttpPost]
-    public ActionResult <Contacto> Crear(Contacto newContacto){
-        newContacto = _contactoService.Crear(newContacto);
-        return Ok( newContacto);
+    public ActionResult<Contacto> Crear(Contacto newContacto)
+    {
+        _contactoRepository.Agregar(newContacto);
+        _contactoRepository.Guardar();
+        return Ok(newContacto);
     }
-[HttpGet]
-public ActionResult<List<Contacto>> ObtenerTodos()
-{
-    var contactos = _contactoService.ObtenerTodo();
-    return Ok(contactos);
-}
 
-[HttpPatch("{id:int}")]
-public ActionResult<Contacto> Modificar (int id, [FromBody] Contacto newContacto ){
-    if (!ModelState.IsValid) return BadRequest (ModelState);
+    [HttpGet]
+    public ActionResult<List<Contacto>> ObtenerTodos()
+    {
+        var contactos = _contactoRepository.ObtenerTodos();
+        return Ok(contactos);
+    }
 
-    newContacto.id = id;
-    var actualizado = _contactoService.Modificar(newContacto);
-    return actualizado is null? NotFound(): Ok(actualizado);
-}
+    [HttpPatch("{id:int}")]
+    public ActionResult<Contacto> Modificar(int id, [FromBody] Contacto newContacto)
+    {
+        newContacto.id = id;
+        if (!_contactoRepository.Existe(id))
+            return NotFound();
 
+        _contactoRepository.Actualizar(newContacto);
+        _contactoRepository.Guardar();
+        return Ok(newContacto);
+    }
 }

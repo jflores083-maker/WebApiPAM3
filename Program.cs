@@ -37,11 +37,12 @@ builder.Services.AddSwaggerGen(options =>
 
 
 builder.Services.AddDbContext<ContactosContext>(options =>
-    options.UseSqlServer("Server=SQL8020.site4now.net;Database=db_a358b2_pam3;User Id=db_a358b2_pam3_admin;Password=tudai123;TrustServerCertificate=True"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Services.AddScoped<ContactoService>();
 
-builder.Services.AddSingleton<AuthService>(); // Nuevo servicio
+builder.Services.AddSingleton<AuthService>(); 
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
