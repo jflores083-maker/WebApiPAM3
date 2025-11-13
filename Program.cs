@@ -39,8 +39,8 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<ContactosContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IContactoRepository, ContactoRepository>();
 
-builder.Services.AddScoped<ContactoService>();
 
 builder.Services.AddSingleton<AuthService>(); 
 
