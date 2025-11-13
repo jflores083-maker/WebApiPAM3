@@ -14,7 +14,7 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public ActionResult Login([FromBody] LoginRequest request)
     {
-        var token = _authService.Login(request.NombreUsuario, request.Password);
+        var token = _authService.Login(request.UserName, request.Password);
 
         if (token == null)
             return Unauthorized(new { mensaje = "Credenciales inválidas" });
@@ -26,6 +26,6 @@ public class AuthController : ControllerBase
 // Clase auxiliar para recibir las credenciales
 public class LoginRequest
 {
-    public string NombreUsuario { get; set; } = string.Empty;
+    public string UserName { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 }

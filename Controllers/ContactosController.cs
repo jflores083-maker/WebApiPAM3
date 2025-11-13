@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
@@ -13,29 +14,55 @@ public class ContactosController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Contacto> Crear(Contacto newContacto)
+    public ActionResult<Contacto> Crear(ContactoDto contactoDto)
     {
-        _contactoRepository.Agregar(newContacto);
-        _contactoRepository.Guardar();
-        return Ok(newContacto);
+        var contacto = new Contacto
+        {
+            Nombre = contactoDto.Nombre,
+            Apellido = contactoDto.Apellido,
+            Telefono = contactoDto.Telefono,
+            Email = contactoDto.Email
+        };
+        var estado = _contactoRepository.Agregar(contacto);
+        return estado ? Ok(contacto) : StatusCode(500, "Error al insertar");
     }
 
+    // GET: api/Contactos
     [HttpGet]
     public ActionResult<List<Contacto>> ObtenerTodos()
     {
-        var contactos = _contactoRepository.ObtenerTodos();
-        return Ok(contactos);
+        return Ok(_contactoRepository.ObtenerTodos());
+    }
+
+    // GET: api/Contactos/5
+    [HttpGet("{id:int}")]
+    public ActionResult<Contacto> ObtenerPorId(int id)
+    {
+        var contacto = _contactoRepository.ObtenerPorId(id);
+        return contacto != null ? Ok(contacto) : NotFound("No existe contacto");
     }
 
     [HttpPatch("{id:int}")]
-    public ActionResult<Contacto> Modificar(int id, [FromBody] Contacto newContacto)
+    public ActionResult<Contacto> Modificar(int id, [FromBody] ContactoDto contactoDto)
     {
-        newContacto.id = id;
-        if (!_contactoRepository.Existe(id))
-            return NotFound();
+        var contactodb = _contactoRepository.ObtenerPorId(id);
+        if (contactodb == null) return NotFound();
 
-        _contactoRepository.Actualizar(newContacto);
-        _contactoRepository.Guardar();
-        return Ok(newContacto);
+        contactodb.Nombre = contactoDto.Nombre;
+        contactodb.Apellido = contactoDto.Apellido;
+        contactodb.Telefono = contactoDto.Telefono;
+        contactodb.Email = contactoDto.Email;
+
+        var estado = _contactoRepository.Actualizar(contactodb);
+        return estado ? Ok(contactodb) : StatusCode(500, "Error al actualizar");
+    }
+
+    [HttpDelete("{id:int}")]
+    public ActionResult Eliminar(int id)
+    {
+        if (!_contactoRepository.Existe(id)) return NoContent();
+        var contactodb = _contactoRepository.ObtenerPorId(id);
+        var estado = _contactoRepository.Eliminar(contactodb);
+        return estado ? Ok("Contacto eliminado") : StatusCode(500, "Error al eliminar");
     }
 }
