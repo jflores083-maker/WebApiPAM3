@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,61 +9,74 @@ public class ContactosController : ControllerBase
 {
     private readonly IContactoRepository _contactoRepository;
 
-    public ContactosController(IContactoRepository contactoRepository)
+    private readonly IMapper _mapper;
+
+    public ContactosController(IContactoRepository contactoRepository, IMapper mapper)
     {
         _contactoRepository = contactoRepository;
+        _mapper = mapper;
     }
 
     [HttpPost]
-    public ActionResult<Contacto> Crear(ContactoDto contactoDto)
-    {
-        var contacto = new Contacto
-        {
-            Nombre = contactoDto.Nombre,
-            Apellido = contactoDto.Apellido,
-            Telefono = contactoDto.Telefono,
-            Email = contactoDto.Email
-        };
-        var estado = _contactoRepository.Agregar(contacto);
-        return estado ? Ok(contacto) : StatusCode(500, "Error al insertar");
-    }
+    [HttpPost]
+public ActionResult<ContactoDto> Crear(ContactoDto contactoDto)
+{
+    var contacto = _mapper.Map<Contacto>(contactoDto);
+    var estado = _contactoRepository.Agregar(contacto);
+
+    if (!estado) return StatusCode(500, "Error al insertar");
+
+    var contactoResult = _mapper.Map<ContactoDto>(contacto);
+    return Ok(contactoResult);
+}
+
 
     // GET: api/Contactos
     [HttpGet]
-    public ActionResult<List<Contacto>> ObtenerTodos()
-    {
-        return Ok(_contactoRepository.ObtenerTodos());
-    }
+public ActionResult<List<ContactoDto>> ObtenerTodos()
+{
+    var contactos = _contactoRepository.ObtenerTodos();
+    var contactosDto = _mapper.Map<List<ContactoDto>>(contactos);
+    return Ok(contactosDto);
+}
+
 
     // GET: api/Contactos/5
-    [HttpGet("{id:int}")]
-    public ActionResult<Contacto> ObtenerPorId(int id)
-    {
-        var contacto = _contactoRepository.ObtenerPorId(id);
-        return contacto != null ? Ok(contacto) : NotFound("No existe contacto");
-    }
+    [HttpGet("{id}")]
+public ActionResult<ContactoDto> ObtenerPorId(int id)
+{
+    var contacto = _contactoRepository.ObtenerPorId(id);
+    if (contacto == null) return NotFound("No existe contacto");
+
+    var contactoDto = _mapper.Map<ContactoDto>(contacto);
+    return Ok(contactoDto);
+}
+
 
     [HttpPatch("{id:int}")]
-    public ActionResult<Contacto> Modificar(int id, [FromBody] ContactoDto contactoDto)
-    {
-        var contactodb = _contactoRepository.ObtenerPorId(id);
-        if (contactodb == null) return NotFound();
+public ActionResult<ContactoDto> Modificar(int id, [FromBody] ContactoDto contactoDto)
+{
+    var contacto = _contactoRepository.ObtenerPorId(id);
+    if (contacto == null) return NotFound();
 
-        contactodb.Nombre = contactoDto.Nombre;
-        contactodb.Apellido = contactoDto.Apellido;
-        contactodb.Telefono = contactoDto.Telefono;
-        contactodb.Email = contactoDto.Email;
+    _mapper.Map(contactoDto, contacto); // Mapea los valores del DTO sobre la entidad existente
 
-        var estado = _contactoRepository.Actualizar(contactodb);
-        return estado ? Ok(contactodb) : StatusCode(500, "Error al actualizar");
-    }
+    var estado = _contactoRepository.Actualizar(contacto);
+    if (!estado) return StatusCode(500, "Error al actualizar");
 
-    [HttpDelete("{id:int}")]
-    public ActionResult Eliminar(int id)
-    {
-        if (!_contactoRepository.Existe(id)) return NoContent();
-        var contactodb = _contactoRepository.ObtenerPorId(id);
-        var estado = _contactoRepository.Eliminar(contactodb);
-        return estado ? Ok("Contacto eliminado") : StatusCode(500, "Error al eliminar");
-    }
+    var contactoResult = _mapper.Map<ContactoDto>(contacto);
+    return Ok(contactoResult);
+}
+
+
+    [HttpDelete("{id}")]
+public ActionResult Eliminar(int id)
+{
+    var contacto = _contactoRepository.ObtenerPorId(id);
+    if (contacto == null) return NotFound("No existe contacto");
+
+    var estado = _contactoRepository.Eliminar(contacto);
+    return estado ? Ok("Contacto eliminado") : StatusCode(500, "Error al eliminar");
+}
+
 }

@@ -200,3 +200,4 @@ C:/Users/Julio/Desktop/Proyecto Web API - Desarrolloo Moviles 3/WebApiPAM3/obj/D
 /Users/diego/WebApiPAM3/obj/Debug/net9.0/WebApiPAM3.pdb
 /Users/diego/WebApiPAM3/obj/Debug/net9.0/WebApiPAM3.genruntimeconfig.cache
 /Users/diego/WebApiPAM3/obj/Debug/net9.0/ref/WebApiPAM3.dll
+/Users/diego/WebApiPAM3/bin/Debug/net9.0/AutoMapper.dll

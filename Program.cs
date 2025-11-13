@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Servicios existentes
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
@@ -40,6 +42,8 @@ builder.Services.AddDbContext<ContactosContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IContactoRepository, ContactoRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<UsuarioService>();
 
 
 builder.Services.AddSingleton<AuthService>(); 

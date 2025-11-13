@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ReSMc1t0WUU=",
+  "dgSpecHash": "EUs3WRB+uCU=",
   "success": true,
   "projectFilePath": "/Users/diego/WebApiPAM3/WebApiPAM3.csproj",
   "expectedPackageFiles": [
+    "/Users/diego/.nuget/packages/automapper/14.0.0/automapper.14.0.0.nupkg.sha512",
     "/Users/diego/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/diego/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
     "/Users/diego/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
