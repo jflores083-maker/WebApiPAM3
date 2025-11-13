@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Servicios existentes
+builder.WebHost.UseUrls("http://0.0.0.0:5250");
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
@@ -46,7 +47,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
 
 
-builder.Services.AddSingleton<AuthService>(); 
+builder.Services.AddScoped<AuthService>(); 
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();

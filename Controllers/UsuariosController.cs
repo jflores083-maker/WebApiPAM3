@@ -5,21 +5,34 @@ using Microsoft.AspNetCore.Mvc;
 public class UsuariosController : ControllerBase
 {
     private readonly IUsuarioRepository _usuarioRepository;
+    private readonly AuthService _authService;
 
-    public UsuariosController(IUsuarioRepository usuarioRepository)
+    public UsuariosController(IUsuarioRepository usuarioRepository, AuthService authService)
     {
         _usuarioRepository = usuarioRepository;
+        _authService = authService;
     }
 
-    
-    [HttpPost("register")]
-    public ActionResult<Usuario> Register(UsuarioDto usuarioDto)
+    [HttpPost("login")]
+    public ActionResult<LoginResponseDto> Login([FromBody] UsuarioDto usuarioDto)
     {
-        
-        if (_usuarioRepository.ExisteUsuario(usuarioDto.UserName))
+        var token = _authService.Login(usuarioDto.UserName, usuarioDto.Password);
+
+        if (token == null)
+            return Unauthorized("Usuario o contraseña incorrectos.");
+
+        return Ok(new LoginResponseDto
         {
+            UserName = usuarioDto.UserName,
+            Token = token
+        });
+    }
+
+    [HttpPost("register")]
+    public ActionResult<Usuario> Register([FromBody] UsuarioDto usuarioDto)
+    {
+        if (_usuarioRepository.ExisteUsuario(usuarioDto.UserName))
             return BadRequest("El usuario ya existe.");
-        }
 
         var usuario = new Usuario
         {
@@ -33,24 +46,10 @@ public class UsuariosController : ControllerBase
         return estado ? Ok(usuario) : StatusCode(500, "Error al registrar usuario.");
     }
 
-
-    [HttpPost("login")]
-    public ActionResult<Usuario> Login(UsuarioDto usuarioDto)
-    {
-        var usuario = _usuarioRepository.ObtenerPorUserName(usuarioDto.UserName);
-
-        if (usuario == null || usuario.Password != usuarioDto.Password)
-        {
-            return Unauthorized("Usuario o contraseña incorrectos.");
-        }
-
-        return Ok(usuario);
-    }
-    
     [HttpGet]
-public ActionResult<List<UsuarioDto>> ObtenerTodos()
-{
-    var usuarios = _usuarioRepository.ObtenerTodos();
-    return Ok(usuarios);
-}
+    public ActionResult<List<UsuarioDto>> ObtenerTodos()
+    {
+        var usuarios = _usuarioRepository.ObtenerTodos();
+        return Ok(usuarios);
+    }
 }
